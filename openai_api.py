@@ -31,15 +31,6 @@ def get_completion(prompt: str, role: str = "user", model="gpt-3.5-turbo"):
     return response
 
 
-user_input = ""
-
-prompt = f"""
-Answer the question or the request inside the following text: 
-{user_input} .
-Answer it like a professional customer service employee .
-"""
-
-
 with gr.Blocks() as block:
     chatbot = gr.Chatbot()
     txt = gr.Textbox(show_label=True, placeholder="Type your message here").style(container=False)
