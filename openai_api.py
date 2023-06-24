@@ -36,13 +36,15 @@ user_input = ""
 prompt = f"""
 Answer the question or the request inside the following text: 
 {user_input} .
-Answer it like a bank employee would do.
+Answer it like a professional customer service employee .
 """
 
-with gr.Blocks as block:
+
+with gr.Blocks() as block:
     chatbot = gr.Chatbot()
-    txt = gr.Textbox(show_label=False, placeholder="Type your message here").style(container=False)
+    txt = gr.Textbox(show_label=True, placeholder="Type your message here").style(container=False)
     txt.submit(get_completion, txt, chatbot)
     txt.submit(None, None, txt, _js="() => {' '}")
+
 
 block.launch()
